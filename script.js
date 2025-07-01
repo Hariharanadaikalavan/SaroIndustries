@@ -97,3 +97,26 @@ function triggerShower() {
     }, 5000);
   }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+      const mobileNav = document.getElementById('mobile-nav');
+      const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+      const mobileNavBackdrop = document.getElementById('mobile-nav-backdrop');
+
+      // Toggle mobile nav
+      mobileNavToggle.addEventListener('click', function() {
+        mobileNav.classList.toggle('active');
+      });
+
+      // Close when clicking backdrop
+      mobileNavBackdrop.addEventListener('click', function() {
+        mobileNav.classList.remove('active');
+      });
+
+      // Close when resizing to desktop
+      window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+          mobileNav.classList.remove('active');
+        }
+      });
+    });
